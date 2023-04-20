@@ -10,8 +10,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react';
 import type {PropsWithChildren} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -19,14 +17,6 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import Settings from './pages/Settings';
 import Offers from './pages/Offers';
 import { Button, Icon } from '@rneui/base';
 
@@ -34,9 +24,11 @@ import EncryptedStorage from 'react-native-encrypted-storage';
 
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import { store } from './redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { setAuth } from './redux/slices/authSlice';
+import SettingsNavigation from './pages/SettingsNavigation';
+import { addOffer } from './redux/slices/offerSlice';
 
 const Tab = createBottomTabNavigator();
 
@@ -50,11 +42,15 @@ function WelcomeScreen(): JSX.Element {
   async function retrieveUserSession() {
     try {   
         const session = await EncryptedStorage.getItem("session");
+        const storedOffers = await EncryptedStorage.getItem("offer");
     
         if (session) {
             setToggle(true);
-            console.log("Hii got it->",session);
-            dispatch(setAuth(1));
+            // console.log("Hii got it->",session);
+            dispatch(setAuth(JSON.parse(session)));
+            if(storedOffers){
+              dispatch(addOffer(JSON.parse(storedOffers)));
+            }
         }
     } catch (error) {
         console.log('Error happend While retrieving the Data');
@@ -65,7 +61,6 @@ function WelcomeScreen(): JSX.Element {
   useEffect(()=>{
     retrieveUserSession();
   },[])
-  useEffect(()=>{},[auth]);
   
   return (
     <>
@@ -85,9 +80,10 @@ function WelcomeScreen(): JSX.Element {
 
         <Tab.Screen 
           name='SETTINGS' 
-          component={Settings} 
+          component={SettingsNavigation} 
           options={{
-            tabBarIcon: () => <Icon name='code' />
+            tabBarIcon: () => <Icon name='code' />,
+            headerShown: false
           }} />
       </Tab.Navigator>
 

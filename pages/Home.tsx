@@ -4,7 +4,7 @@ import resturentData from '../mock/resturent.json';
 import EachResturentCard from '../components/EachResturentCard';
 
 const Home  = () : JSX.Element => {
-    console.log(resturentData[0]);
+    
     return(
         <View style={{marginBottom:10}}>
             
@@ -14,7 +14,10 @@ const Home  = () : JSX.Element => {
                     <EachResturentCard 
                     name={item.name} 
                     address={item.address}
-                    url={item.url}/>
+                    url={item.url}
+                    discount={item.discount} 
+                    coupon_code={item.coupon_code}
+                    />
                 )}
                 keyExtractor={(item:any)=>item.name}
             />

@@ -4,14 +4,17 @@ import { Avatar } from '@rneui/themed';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import { useDispatch } from 'react-redux';
 import { removeAuth } from '../redux/slices/authSlice';
+import { NavigationContainer } from '@react-navigation/native';
 
-const Settings  = () : JSX.Element => {
+const Settings  = ({navigation}:any) : JSX.Element => {
 
     const dispatch = useDispatch();
 
     const handleLogout = async()=>{
         try {
             await EncryptedStorage.removeItem("session");
+            await EncryptedStorage.removeItem("offer");
+
             dispatch(removeAuth(1));
         } catch (error) {
             console.log("Errror happend while removing Auth");
@@ -27,15 +30,15 @@ const Settings  = () : JSX.Element => {
                 rounded
                 source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
             />
-            <TouchableOpacity style={styles.buttons}>
+            <TouchableOpacity style={styles.buttons} onPress={()=>navigation.navigate('Profile')}>
                 <Text>Profile Information</Text>        
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttons}>
+            <TouchableOpacity style={styles.buttons} onPress={()=>navigation.navigate('OFFERS')}>
                 <Text>My Offers</Text>        
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.buttons} onPress={handleLogout}>
-                <Text>Log Out</Text>        
+            <TouchableOpacity style={styles.LogOutbuttons} onPress={handleLogout}>
+                <Text style={{color:'white', fontSize:25, fontWeight:'bold'}}>Log Out</Text>        
             </TouchableOpacity>
             
             </View>
@@ -63,6 +66,16 @@ const styles = StyleSheet.create({
         borderColor:'black',
         borderWidth:1,
         borderRadius:20
+    },
+    LogOutbuttons : {
+        width:350,
+        alignItems: 'center',
+        backgroundColor: 'black',
+        padding: 5,
+        marginTop:30,
+        borderColor:'black',
+        borderWidth:1,
+        borderRadius:5
     }
 })
 

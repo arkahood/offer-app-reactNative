@@ -21,7 +21,7 @@ const SignIn = () : JSX.Element => {
                 flag = true;
                 if(ele.password !== password) Alert.alert("Wrong Password");
                 else {
-                    Alert.alert("all data is correct");
+                    Alert.alert("You Have Succesfully Logged In");
                     storeUser(ele);
                 }
             }
@@ -34,12 +34,12 @@ const SignIn = () : JSX.Element => {
             await EncryptedStorage.setItem(
                 "session",
                 JSON.stringify({
-                    age : 21,
+                    age : ele.age,
                     username : ele.username,
                     name : ele.name
                 })
             )
-            dispatch(setAuth(1));
+            dispatch(setAuth({name : ele.name , username : ele.username, age : ele.age}));
         } catch (error) {
             console.log('Error occurs while Storing the User Seesion');
         }
