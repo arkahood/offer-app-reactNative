@@ -16,6 +16,7 @@ const Settings  = ({navigation}:any) : JSX.Element => {
             await EncryptedStorage.removeItem("offer");
 
             dispatch(removeAuth(1));
+            
         } catch (error) {
             console.log("Errror happend while removing Auth");
         }

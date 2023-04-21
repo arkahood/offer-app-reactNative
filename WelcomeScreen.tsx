@@ -17,6 +17,8 @@ import {
   View,
 } from 'react-native';
 
+import SplashScreen from 'react-native-splash-screen'
+
 import Offers from './pages/Offers';
 import { Button, Icon } from '@rneui/base';
 
@@ -45,13 +47,14 @@ function WelcomeScreen(): JSX.Element {
         const storedOffers = await EncryptedStorage.getItem("offer");
     
         if (session) {
-            setToggle(true);
+            // setToggle(true);
             // console.log("Hii got it->",session);
             dispatch(setAuth(JSON.parse(session)));
             if(storedOffers){
               dispatch(addOffer(JSON.parse(storedOffers)));
             }
         }
+        setToggle(true);
     } catch (error) {
         console.log('Error happend While retrieving the Data');
         
@@ -59,8 +62,11 @@ function WelcomeScreen(): JSX.Element {
 }
 
   useEffect(()=>{
+    console.log('hii');
+    
     retrieveUserSession();
-  },[])
+    if(toggle)SplashScreen.hide();
+  },[toggle])
   
   return (
     <>

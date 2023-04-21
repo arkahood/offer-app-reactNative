@@ -2,36 +2,36 @@
     {
         "name": "Aahar Resturent",
         "address": "Babupara, Alipurduar",
-        "discount": 30,
+        "discount": "30",
         "coupon_code": "first100",
         "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
     },
     {
         "name": "Indrapuri Resturent",
         "address": "Babupara, Alipurduar",
-        "discount": "30",
-        "coupon_code": "first100",
+        "discount": "45",
+        "coupon_code": "PAYTMZZ",
         "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
     },
     {
         "name": "Chicks and Rolls",
         "address": "Babupara, Alipurduar",
-        "discount": "30",
-        "coupon_code": "first100",
+        "discount": "15",
+        "coupon_code": "REF250",
         "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
     },
     {
         "name": "Buxa Feder",
         "address": "Babupara, Alipurduar",
-        "discount": "30",
-        "coupon_code": "first100",
+        "discount": "25",
+        "coupon_code": "MENP21",
         "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
     },
     {
         "name": "Aminia Biriyani",
         "address": "Babupara, Alipurduar",
-        "discount": "30",
-        "coupon_code": "first100",
+        "discount": "65",
+        "coupon_code": "HELLO40",
         "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
     }
 ]
