@@ -31,6 +31,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setAuth } from './redux/slices/authSlice';
 import SettingsNavigation from './pages/SettingsNavigation';
 import { addOffer } from './redux/slices/offerSlice';
+import HeaderAvatar from './components/HeaderAvatar';
+import TabBarIcon from './components/TabBarIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -77,18 +79,29 @@ function WelcomeScreen(): JSX.Element {
         <Tab.Screen 
           name='Home' 
           component={Home} 
+          options={
+            ({navigation}) => {
+            return {
+              headerRight : ()=> <HeaderAvatar navigation={navigation}/>,
+              tabBarIcon : () => <TabBarIcon name="https://static.vecteezy.com/system/resources/previews/000/366/438/original/home-vector-icon.jpg"></TabBarIcon>,
+            }
+          }}
         />
 
         <Tab.Screen 
           name='OFFERS' 
           component={Offers} 
+          options={{
+            tabBarIcon: () => <TabBarIcon notification={true} name="https://th.bing.com/th/id/R.274b26a192bdcaf8dd32ec28d00ff102?rik=c2WORYfsk%2fTrJw&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_275895.png&ehk=Pf1lBrqmbBCZGyythI4Z0ahbYGsUzHDyiTDHBJdwnl8%3d&risl=&pid=ImgRaw&r=0"></TabBarIcon>,
+            headerShown: false
+          }} 
         />
 
         <Tab.Screen 
           name='SETTINGS' 
           component={SettingsNavigation} 
           options={{
-            tabBarIcon: () => <Icon name='code' />,
+            tabBarIcon: () => <TabBarIcon name="https://th.bing.com/th/id/OIP.nTK-yAWL01laY6CKjMEq3gHaHa?pid=ImgDet&rs=1"></TabBarIcon>,
             headerShown: false
           }} />
       </Tab.Navigator>

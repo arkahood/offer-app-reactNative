@@ -32,10 +32,10 @@ const Settings  = ({navigation}:any) : JSX.Element => {
                 source={{ uri: "https://randomuser.me/api/portraits/men/36.jpg" }}
             />
             <TouchableOpacity style={styles.buttons} onPress={()=>navigation.navigate('Profile')}>
-                <Text>Profile Information</Text>        
+                <Text style={{color:'white', fontSize:25, fontWeight:'bold'}}>Profile Information</Text>        
             </TouchableOpacity>
             <TouchableOpacity style={styles.buttons} onPress={()=>navigation.navigate('OFFERS')}>
-                <Text>My Offers</Text>        
+                <Text style={{color:'white', fontSize:25, fontWeight:'bold'}}>My Offers</Text>        
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.LogOutbuttons} onPress={handleLogout}>
@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
     buttons : {
         width:350,
         alignItems: 'center',
-        backgroundColor: '#DDDDDD',
+        backgroundColor: 'red',
         padding: 20,
         marginTop:30,
-        borderColor:'black',
-        borderWidth:1,
+        // borderColor:'black',
+        // borderWidth:1,
         borderRadius:20
     },
     LogOutbuttons : {
