@@ -4,10 +4,9 @@
  *
  * @format
  */
-
+import React, {useState, useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
-import React, {useState, useEffect} from 'react';
 
 import SplashScreen from 'react-native-splash-screen';
 
@@ -33,34 +32,51 @@ function WelcomeScreen(): JSX.Element {
   const auth = useSelector((state: any) => state.auth);
   const dispatch = useDispatch();
 
-  async function retrieveUserSession() {
-    try {
-      const session = await EncryptedStorage.getItem('session');
-      const storedOffers = await EncryptedStorage.getItem('offer');
+  // async function retrieveUserSession() {
+  //   try {
+  //     const session = await EncryptedStorage.getItem('session');
+  //     const storedOffers = await EncryptedStorage.getItem('offer');
 
-      if (session) {
-        // setToggle(true);
-        // console.log("Hii got it->",session);
-        dispatch(setAuth(JSON.parse(session)));
-        if (storedOffers) {
-          dispatch(addOffer(JSON.parse(storedOffers)));
-        }
-      }
-      setToggle(true);
-    } catch (error) {
-      console.log('Error happend While retrieving the Data');
-    }
-  }
+  //     if (session) {
+  //       // setToggle(true);
+  //       // console.log("Hii got it->",session);
+  //       dispatch(setAuth(JSON.parse(session)));
+  //       if (storedOffers) {
+  //         dispatch(addOffer(JSON.parse(storedOffers)));
+  //       }
+  //     }
+  //     setToggle(true);
+  //   } catch (error) {
+  //     console.log('Error happend While retrieving the Data');
+  //   }
+  // }
 
   useEffect(() => {
-    console.log('hii');
+    const retrieveUserSession = async () => {
+      try {
+        const session = await EncryptedStorage.getItem('session');
+        const storedOffers = await EncryptedStorage.getItem('offer');
+
+        if (session) {
+          // setToggle(true);
+          // console.log("Hii got it->",session);
+          dispatch(setAuth(JSON.parse(session)));
+          if (storedOffers) {
+            dispatch(addOffer(JSON.parse(storedOffers)));
+          }
+        }
+        setToggle(true);
+      } catch (error) {
+        console.log('Error happend While retrieving the Data');
+      }
+    };
 
     retrieveUserSession().then(() => {
       if (toggle) {
         SplashScreen.hide();
       }
     });
-  }, [toggle]);
+  }, [toggle, dispatch]);
 
   return (
     <>

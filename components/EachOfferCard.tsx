@@ -17,12 +17,15 @@ const EachOfferCard = ({coupon_code, name}: EachOfferCardProp): JSX.Element => {
 
   const offer = useSelector((state: any) => state.offer);
 
-  const handleDeleteFromAsyncStorage = async () => {
-    await EncryptedStorage.setItem('offer', JSON.stringify(offer));
-  };
+  // const handleDeleteFromAsyncStorage = async () => {
+  //   await EncryptedStorage.setItem('offer', JSON.stringify(offer));
+  // };
 
   useEffect(() => {
     console.log('inside each Offer', offer);
+    const handleDeleteFromAsyncStorage = async () => {
+      await EncryptedStorage.setItem('offer', JSON.stringify(offer));
+    };
     handleDeleteFromAsyncStorage();
   }, [offer]);
 

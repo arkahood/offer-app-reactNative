@@ -4,11 +4,11 @@
  *
  * @format
  */
-
+import React, {useEffect} from 'react';
 import {Provider} from 'react-redux';
 import WelcomeScreen from './WelcomeScreen';
 import {store} from './redux/store';
-import {useEffect} from 'react';
+
 import {StatusBar} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 
