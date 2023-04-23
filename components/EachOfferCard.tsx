@@ -64,6 +64,8 @@ const EachOfferCard = ({coupon_code, name}: EachOfferCardProp): JSX.Element => {
 const styles = StyleSheet.create({
   coupon_container: {
     borderRadius: 10,
+    elevation: 20,
+    margin: 10,
   },
 });
 

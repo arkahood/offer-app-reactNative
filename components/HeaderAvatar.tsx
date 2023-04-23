@@ -18,6 +18,7 @@ const HeaderAvatar = ({navigation}: any): JSX.Element => {
 const styles = StyleSheet.create({
   container: {
     marginRight: 20,
+    elevation: 30,
   },
 });
 

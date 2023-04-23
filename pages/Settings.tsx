@@ -13,7 +13,7 @@ const Settings = ({navigation}: any): JSX.Element => {
       await EncryptedStorage.removeItem('session');
       await EncryptedStorage.removeItem('offer');
 
-      dispatch(removeAuth(1));
+      dispatch(removeAuth());
     } catch (error) {
       console.log('Errror happend while removing Auth');
     }
@@ -27,7 +27,7 @@ const Settings = ({navigation}: any): JSX.Element => {
           size={120}
           rounded
           source={{uri: 'https://randomuser.me/api/portraits/men/36.jpg'}}
-          avatarStyle={{borderWidth: 5, borderColor: 'white'}}
+          avatarStyle={styles.avatar}
         />
         <TouchableOpacity
           style={styles.buttons}
@@ -49,9 +49,13 @@ const Settings = ({navigation}: any): JSX.Element => {
 };
 
 const styles = StyleSheet.create({
+  avatar: {
+    borderWidth: 5,
+    borderColor: 'white',
+  },
   aboveProfileImg: {
     flex: 3,
-    backgroundColor: 'black',
+    backgroundColor: '#FF5A5F',
   },
   settingBody: {
     flex: 7,
@@ -61,12 +65,11 @@ const styles = StyleSheet.create({
   buttons: {
     width: 350,
     alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: '#FF655B',
     padding: 20,
     marginTop: 30,
-    // borderColor:'black',
-    // borderWidth:1,
     borderRadius: 20,
+    elevation: 80,
   },
   LogOutbuttons: {
     width: 350,
@@ -77,6 +80,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 5,
+    elevation: 50,
   },
   buttonText: {
     color: 'white',

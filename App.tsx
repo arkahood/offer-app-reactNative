@@ -18,7 +18,7 @@ function App(): JSX.Element {
   }, []);
   return (
     <Provider store={store}>
-      <StatusBar backgroundColor="red" />
+      <StatusBar backgroundColor="#FF5A5F" />
       <PaperProvider>
         <WelcomeScreen />
       </PaperProvider>

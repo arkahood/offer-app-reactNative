@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 import EachOfferCard from '../components/EachOfferCard';
 import EncryptedStorage from 'react-native-encrypted-storage';
@@ -11,7 +11,7 @@ const Offers = (): JSX.Element => {
   }
 
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <FlatList
         data={offers.data}
         renderItem={(item: any) => (
@@ -22,11 +22,20 @@ const Offers = (): JSX.Element => {
         )}
         keyExtractor={(item: any) => item.name}
       />
-      <View style={{alignItems: 'center'}}>
+      <View style={styles.bottomText}>
         <Text>Swipe to delete</Text>
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  bottomText: {
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+  },
+});
 
 export default Offers;

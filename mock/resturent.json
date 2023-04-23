@@ -33,5 +33,33 @@
         "discount": "65",
         "coupon_code": "HELLO40",
         "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
+    },
+    {
+        "name": "Arsenal Biriyani",
+        "address": "Babupara, Alipurduar",
+        "discount": "55",
+        "coupon_code": "BIRYANI40",
+        "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
+    },
+    {
+        "name": "Sabrosa Plato",
+        "address": "Babupara, Alipurduar",
+        "discount": "15",
+        "coupon_code": "CAFE10",
+        "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
+    },
+    {
+        "name": "Red Cup",
+        "address": "Babupara, Alipurduar",
+        "discount": "20",
+        "coupon_code": "CHEAP20",
+        "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
+    },
+    {
+        "name": "Bangabhumi",
+        "address": "Babupara, Alipurduar",
+        "discount": "5",
+        "coupon_code": "ROYAL05",
+        "url": "https://www.pixelstalk.net/wp-content/uploads/2016/08/Fresh-hot-delicious-food-wallpaper.jpg"
     }
 ]

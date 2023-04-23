@@ -82,7 +82,7 @@ const EachResturentCard = ({
   };
 
   return (
-    <Card>
+    <Card containerStyle={styles.container}>
       <Card.Title>{name}</Card.Title>
       <Card.Divider />
       <Card.Image
@@ -109,6 +109,9 @@ const EachResturentCard = ({
 };
 
 const styles = StyleSheet.create({
+  container: {
+    elevation: 20,
+  },
   discount: {
     flex: 1,
     justifyContent: 'center',

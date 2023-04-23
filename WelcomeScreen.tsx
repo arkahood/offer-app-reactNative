@@ -5,22 +5,23 @@
  * @format
  */
 import React, {useState, useEffect} from 'react';
+
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 
+import {useDispatch, useSelector} from 'react-redux';
+import {setAuth} from './redux/slices/authSlice';
+import {addOffer} from './redux/slices/offerSlice';
+
+import EncryptedStorage from 'react-native-encrypted-storage';
 import SplashScreen from 'react-native-splash-screen';
 
 import Offers from './pages/Offers';
 
-import EncryptedStorage from 'react-native-encrypted-storage';
-
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
-import {useDispatch, useSelector} from 'react-redux';
-
-import {setAuth} from './redux/slices/authSlice';
 import SettingsNavigation from './pages/SettingsNavigation';
-import {addOffer} from './redux/slices/offerSlice';
+
 import HeaderAvatar from './components/HeaderAvatar';
 import TabBarIcon from './components/TabBarIcon';
 
@@ -32,25 +33,6 @@ function WelcomeScreen(): JSX.Element {
   const auth = useSelector((state: any) => state.auth);
   const dispatch = useDispatch();
 
-  // async function retrieveUserSession() {
-  //   try {
-  //     const session = await EncryptedStorage.getItem('session');
-  //     const storedOffers = await EncryptedStorage.getItem('offer');
-
-  //     if (session) {
-  //       // setToggle(true);
-  //       // console.log("Hii got it->",session);
-  //       dispatch(setAuth(JSON.parse(session)));
-  //       if (storedOffers) {
-  //         dispatch(addOffer(JSON.parse(storedOffers)));
-  //       }
-  //     }
-  //     setToggle(true);
-  //   } catch (error) {
-  //     console.log('Error happend While retrieving the Data');
-  //   }
-  // }
-
   useEffect(() => {
     const retrieveUserSession = async () => {
       try {
@@ -58,8 +40,6 @@ function WelcomeScreen(): JSX.Element {
         const storedOffers = await EncryptedStorage.getItem('offer');
 
         if (session) {
-          // setToggle(true);
-          // console.log("Hii got it->",session);
           dispatch(setAuth(JSON.parse(session)));
           if (storedOffers) {
             dispatch(addOffer(JSON.parse(storedOffers)));

@@ -1,11 +1,13 @@
-import {Button, Input} from '@rneui/base';
 import React, {useState} from 'react';
 import {Alert, Image, StyleSheet, View} from 'react-native';
+
+import {useDispatch} from 'react-redux';
+import {setAuth} from '../redux/slices/authSlice';
+
+import {Button, Input} from '@rneui/base';
 import EncryptedStorage from 'react-native-encrypted-storage';
 
 import allUser from '../mock/userLoginData.json';
-import {useDispatch} from 'react-redux';
-import {setAuth} from '../redux/slices/authSlice';
 
 const SignIn = (): JSX.Element => {
   const [username, setUsername] = useState('');
@@ -58,7 +60,7 @@ const SignIn = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <Image
-        style={{flex: 3}}
+        style={styles.imageStyle}
         source={{
           uri: 'https://img.freepik.com/free-vector/programming-education-concept-programmers-learn-coding-computer-illustration-people-reate-code-program-programming-languages-online-internet-learning-modern-education-technology_109722-2575.jpg?size=626&ext=jpg',
         }}
@@ -77,13 +79,9 @@ const SignIn = (): JSX.Element => {
         />
         <Button
           title="Sign In"
-          buttonStyle={{backgroundColor: '#1877F2'}}
-          containerStyle={{
-            width: 350,
-            marginHorizontal: 50,
-            marginVertical: 10,
-          }}
-          titleStyle={{color: 'white', marginHorizontal: 20}}
+          buttonStyle={styles.button}
+          containerStyle={styles.buttonContainer}
+          titleStyle={styles.buttontitleStyle}
           onPress={handleLogin}
         />
       </View>
@@ -96,9 +94,24 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 20,
   },
+  imageStyle: {
+    flex: 3,
+  },
   eachForm: {
     flex: 3,
     alignItems: 'center',
+  },
+  buttonContainer: {
+    width: 350,
+    marginHorizontal: 50,
+    marginVertical: 10,
+  },
+  buttontitleStyle: {
+    color: 'white',
+    marginHorizontal: 20,
+  },
+  button: {
+    backgroundColor: '#1877F2',
   },
 });
 

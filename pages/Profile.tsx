@@ -14,7 +14,7 @@ const Profile = () => {
           size={120}
           rounded
           source={{uri: 'https://randomuser.me/api/portraits/men/36.jpg'}}
-          avatarStyle={{borderWidth: 5, borderColor: 'white'}}
+          avatarStyle={styles.avatar}
         />
         <View style={styles.eachRow}>
           <Text style={styles.heading}>NAME </Text>
@@ -34,6 +34,10 @@ const Profile = () => {
 };
 
 const styles = StyleSheet.create({
+  avatar: {
+    borderWidth: 5,
+    borderColor: 'white',
+  },
   container: {
     flex: 1,
     alignItems: 'center',
@@ -41,7 +45,7 @@ const styles = StyleSheet.create({
   },
   aboveAvatar: {
     flex: 0.5,
-    backgroundColor: 'black',
+    backgroundColor: '#FF5A5F',
   },
   eachRow: {
     display: 'flex',
